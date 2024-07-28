@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Converter</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: ghostwhite;
+        color: #333;
+        text-align: center; /* Center text for the entire page */
+        margin: 0;
+        padding: 0;
+    }
+    
+    form {
+        display: inline-block; /* Center the form horizontally */
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 300px;
+        box-sizing: border-box;
+    }
+    
+    button {
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+    button:hover {
+        background-color: #218838;
+    }
+    
+    h2 {
+        margin-top: 30px;
+        color: #555;
+    }
+    
+    ul {
+        list-style-type: none; /* Remove the bullets from the list */
+        padding: 0;
+        margin: 0;
+    }
+    
+    li {
+        margin-bottom: 10px;
+    }
+    </style>
+    
+<body>
+    <h1>Crypto Converter</h1>
+    <form action="/convert" method="POST">
+        <label for="amount">Amount in USD:</label>
+        <input type="text" id="amount" name="amount">
+        <button type="submit">Convert</button>
+    </form>
+
+    <% if (prices && amount) { %>
+        <h2>Equivalent Prices</h2>
+        <p>Amount in USD: <%= amount %></p>
+        <p>Equivalent Bitcoin: <%= equivalentAmountsUSD.bitcoin %> BTC</p>
+        <p>Equivalent Ethereum: <%= equivalentAmountsUSD.ethereum %> ETH</p>
+        <p>Equivalent Solana: <%= equivalentAmountsUSD.solana %> SOL</p>
+        <p>Equivalent Dogecoin: <%= equivalentAmountsUSD.dogecoin %> DOGE</p>
+        <p>Equivalent Binance Coin: <%= equivalentAmountsUSD.binancecoin %> BNB</p>
+
+        <h2>Equivalent in INR</h2>
+        <p>Equivalent Bitcoin: <%= equivalentAmountsINR.bitcoin %> BTC</p>
+        <p>Equivalent Ethereum: <%= equivalentAmountsINR.ethereum %> ETH</p>
+        <p>Equivalent Solana: <%= equivalentAmountsINR.solana %> SOL</p>
+        <p>Equivalent Dogecoin: <%= equivalentAmountsINR.dogecoin %> DOGE</p>
+        <p>Equivalent Binance Coin: <%= equivalentAmountsINR.binancecoin %> BNB</p>
+    <% } %>
+
+    <% if (error) { %>
+        <p><%= error %></p>
+    <% } %>
+</body>
+</html>
